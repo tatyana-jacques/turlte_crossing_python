@@ -4,9 +4,11 @@ from turtle import Screen
 
 from car_manager import CarManager
 from player import Player
-X_POS = [300,350,400,450,500,550]
-X_START = [300,400,500,600,700,800,900,1000]
+from scoreboard import Scoreboard
+
+X_POS = [300,400,500,600,700,800,900,1000]
 Y_POS = [-200,-150,-100,-50,0,50,100,150,200]
+level = 0
 screen = Screen()
 screen.setup(width = 600, height = 600)
 screen.bgcolor("white")
@@ -15,12 +17,8 @@ screen.tracer(0)
 
 player = Player()
 cars = []
-game_time = 0.1
-
-
-
-
-
+game_time = 0.2
+scoreboard = Scoreboard(level)
 
 screen.listen()
 screen.onkey(player.move,"Up")
@@ -28,7 +26,7 @@ screen.onkey(player.move,"Up")
 
 game_is_on = True
 index = 0
-for pos in X_START:
+for pos in X_POS:
    cars.append(CarManager(pos,random.choice(Y_POS)))
 while game_is_on:
    screen.update()
@@ -40,8 +38,17 @@ while game_is_on:
          index +=1
          if index >=len(Y_POS):
             index = 0
+      if car.distance(player)<=30:
+         scoreboard.game_over()
+         game_is_on = False
 
-
+      if player.ycor() >= 300:
+         level += 1
+         scoreboard.clear()
+         scoreboard.write_level(level)
+         player.refresh()
+         game_time-=0.05
+         print(game_time)
 
 
 screen.exitonclick()

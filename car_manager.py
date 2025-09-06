@@ -4,7 +4,7 @@ from turtle import Turtle
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple", "pink"]
 STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
-CAR_QUANTITY = 20
+CAR_QUANTITY = 30
 
 
 class CarManager(Turtle):
