@@ -9,6 +9,7 @@ from scoreboard import Scoreboard
 X_POS = [300,400,500,600,700,800,900,1000]
 Y_POS = [-200,-150,-100,-50,0,50,100,150,200]
 level = 1
+
 screen = Screen()
 screen.setup(width = 600, height = 600)
 screen.bgcolor("white")
@@ -25,6 +26,7 @@ screen.onkey(player.move,"Up")
 
 game_is_on = True
 index = 0
+
 for pos in X_POS:
    cars.append(CarManager(pos,random.choice(Y_POS)))
 while game_is_on:

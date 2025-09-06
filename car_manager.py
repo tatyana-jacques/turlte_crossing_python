@@ -4,7 +4,6 @@ from turtle import Turtle
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple", "pink"]
 MOVE_INCREMENT = 10
 
-
 class CarManager(Turtle):
     def __init__(self, x_pos, y_pos):
         super().__init__()

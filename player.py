@@ -2,7 +2,6 @@ from turtle import Turtle
 
 STARTING_POSITION = (0, -280)
 MOVE_DISTANCE = 100
-FINISH_LINE_Y = 280
 LIVES = 3
 
 class Player(Turtle):
